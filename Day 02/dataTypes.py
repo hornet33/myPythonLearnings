@@ -22,3 +22,16 @@ print(b)
 # b = false -- this statement will give an error
 b = False
 print(b)
+
+# # # type function to check the type of data
+print(type(s))
+print(type(i))
+print(type(f))
+print(type(b))
+
+# # # type conversion / type casting - converting from one data type to another
+# print("Value of i = " + i)
+# The above line will give an error since print takes only a single datatype; here i is of type int and rest is type str
+print("Value of i = " + str(i))  # This will convert int i to type str and print will accept it
+print(70 + float("100.5"))
+print(str(70) + str(100.5))
