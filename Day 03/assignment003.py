@@ -22,6 +22,7 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 *******************************************************************************
 ''')
 # # # Above is a multi-line string in Python, starts and ends with 3 quotes '''
+# # # More art can be found at https://ascii.co.uk/art
 
 print("Welcome to Treasure Island.")
 print("Your mission is to find the treasure.")
