@@ -38,4 +38,12 @@ print(sample_list)
 sample_list.remove("Item-04")
 print(sample_list)
 
+# Nested Lists - list within a list, similar to multi-dimensional arrays
+fruits = ["Banana", "Apple", "Orange", "Mango"]
+vegetables = ["Potato", "Spinach", "Cauliflower", "Cabbage", "Onions"]
+fruits_and_vegetables = [fruits, vegetables]  # The 'fruits_and_vegetables' list now has two lists inside it
+print(fruits_and_vegetables)
+print(fruits_and_vegetables[0])
+print(fruits_and_vegetables[0][0])
+
 # Go through Python documentation at https://docs.python.org/3/tutorial/datastructures.html for lists
