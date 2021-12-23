@@ -27,7 +27,7 @@ love_percent = count_TRUE * 10 + count_LOVE
 # Print message according to love percent
 if love_percent < 10 or love_percent > 90:
     print(f"Your score is {love_percent}, you go together like coke and mentos.")
-elif love_percent > 40 and love_percent < 50:
+elif love_percent >= 40 and love_percent <= 50:
     print(f"Your score is {love_percent}, you are alright together.")
 else:
     print(f"Your score is {love_percent}.")
