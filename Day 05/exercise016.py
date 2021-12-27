@@ -2,7 +2,7 @@
 
 # Take the input and store in a list
 student_heights = input("Input a list of student heights ").split()
-for n in range(0, len(student_heights)):
+for n in range(0, len(student_heights)):  # Can also use "range(len(student_heights))" as default start index = 0
     student_heights[n] = int(student_heights[n])
 
 # Variables to store total students and total height of all students
