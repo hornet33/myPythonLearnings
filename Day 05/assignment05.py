@@ -40,6 +40,7 @@ print(f"Generated Easy Password: {generated_easy_password}")
 easy_pwd_as_list = list(generated_easy_password)
 # Using in-built random.shuffle(<list>) to shuffle the contents
 random.shuffle(easy_pwd_as_list)
-# Joining the shuffled list back to a string using ''.join() and saving in generated_hard_password variable
-generated_hard_password = ''.join(easy_pwd_as_list)
+# Joining the shuffled list in generated_hard_password variable
+for char in easy_pwd_as_list:
+    generated_hard_password += char
 print(f"Generated Hard Password: {generated_hard_password}")
