@@ -37,6 +37,10 @@ while continue_program == 'yes':
     text = input("Type your message: ").lower()
     shift = int(input("Type the shift number: "))
 
+    # If shift number > 25 (number of items in 'alphabet' list)
+    if shift > 25:
+        shift = shift % 26  # Take modulo of 26 (number of total alphabets) and use as the shift_key
+
     # Call the caesar function to encode or decode based on user input
     caesar(text, shift, direction)
 
