@@ -3,58 +3,41 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
             'v', 'w', 'x', 'y', 'z']
 
 
-# Create a function called 'decrypt' that takes the encrypted text and shift as inputs.
-def decrypt(encrypted_text, shift_key):
-    decrypted_text = ""
-    for letter in encrypted_text:
+def caesar(input_text, shift_key, direction_of_string):
+    output_text = ""
+    new_char_index = 0
+    for letter in input_text:
         if letter not in alphabet:  # Special case for spaces, special characters (non-alphabets)
-            decrypted_text += letter  # Just append it to the decrypted string as it is
+            output_text += letter  # Just append it to the output string as it is
             continue  # Continue looping with the next letter in the text string
         else:  # An alphabet
             char_index = alphabet.index(letter)  # Find the index of the current letter in the alphabet list
-            new_char_index = char_index - shift_key  # Calculate the new character to replace it with
-            if new_char_index < 0:  # Special case to take care if index < 0 (eg. 'a')
-                new_char_index = 26 + new_char_index  # Loop back to the end of the alphabet list
-            decrypted_text += alphabet[new_char_index]  # Append the new character to the decrypted text
+            if direction_of_string == 'encode':
+                new_char_index = char_index + shift_key  # Calculate the new character to replace it with
+                if new_char_index > 25:  # Special case to take care if index > 25 (eg. 'z')
+                    new_char_index = new_char_index - 26  # Loop back to the beginning of the alphabet list
+            elif direction_of_string == 'decode':
+                new_char_index = char_index - shift_key  # Calculate the new character to replace it with
+                if new_char_index < 0:  # Special case to take care if index < 0 (eg. 'a')
+                    new_char_index = 26 + new_char_index  # Loop back to the end of the alphabet list
 
-    print(f"The decrypted text is '{decrypted_text}'")
+            output_text += alphabet[new_char_index]  # Append the new character to the output text
 
-
-# Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
-def encrypt(original_text, shift_key):
-    encrypted_text = ""  # Variable to store the final encrypted text, initialized to a blank string
-    for letter in original_text:  # Loop for every character in the text string
-        if letter not in alphabet:  # Special case for spaces, special characters (non-alphabets)
-            encrypted_text += letter  # Just append it to the encrypted string as it is
-            continue  # Continue looping with the next letter in the text string
-        else:  # An alphabet
-            char_index = alphabet.index(letter)  # Find the index of the current letter in the alphabet list
-            new_char_index = char_index + shift_key  # Calculate the new character to replace it with
-            if new_char_index > 25:  # Special case to take care if index > 25 (eg. 'z')
-                new_char_index = new_char_index - 26  # Loop back to the beginning of the alphabet list
-            encrypted_text += alphabet[new_char_index]  # Append the new character to the encrypted text
-
-    print(f"The encrypted text is '{encrypted_text}'")
+    print(f"The {direction_of_string.upper()}D text is: '{output_text}'")
 
 
-continue_program = True
-while continue_program:
+continue_program = "yes"
+while continue_program == 'yes':
 
     direction = ""
     while direction not in ['encode', 'decode']:
-        direction = input("Type 'encode' to encrypt, 'decode' to decrypt:\n").lower()
+        direction = input("Type 'encode' to encrypt, 'decode' to decrypt: ").lower()
 
     # Taking user input and calling the encrypt/decrypt function based on user selection
-    text = input("Type your message:\n").lower()
-    shift = int(input("Type the shift number:\n"))
+    text = input("Type your message: ").lower()
+    shift = int(input("Type the shift number: "))
 
-    if direction == 'encode':
-        encrypt(original_text=text, shift_key=shift)
-    elif direction == 'decode':
-        decrypt(encrypted_text=text, shift_key=shift)
+    # Call the caesar function to encode or decode based on user input
+    caesar(text, shift, direction)
 
-    another_round = input("Do you want to continue? Type 'Yes' or 'No': ")
-    if another_round.lower() == 'yes':
-        continue_program = True
-    else:
-        continue_program = False
+    continue_program = input("Do you want to continue? Type 'Yes' or 'No': ").lower()
