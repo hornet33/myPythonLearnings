@@ -5,27 +5,25 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 
 # Create a function called 'decrypt' that takes the encrypted text and shift as inputs.
 def decrypt(encrypted_text, shift_key):
-    text_lower = encrypted_text.lower()
     decrypted_text = ""
-    for letter in text_lower:
+    for letter in encrypted_text:
         if letter not in alphabet:  # Special case for spaces, special characters (non-alphabets)
-            decrypted_text += letter  # Just append it to the encrypted string as it is
+            decrypted_text += letter  # Just append it to the decrypted string as it is
             continue  # Continue looping with the next letter in the text string
         else:  # An alphabet
             char_index = alphabet.index(letter)  # Find the index of the current letter in the alphabet list
             new_char_index = char_index - shift_key  # Calculate the new character to replace it with
             if new_char_index < 0:  # Special case to take care if index < 0 (eg. 'a')
-                new_char_index = 26 + new_char_index  # Loop back to the beginning of the alphabet
-            decrypted_text += alphabet[new_char_index]  # Append the new character to the encrypted text
+                new_char_index = 26 + new_char_index  # Loop back to the end of the alphabet list
+            decrypted_text += alphabet[new_char_index]  # Append the new character to the decrypted text
 
     print(f"The decrypted text is '{decrypted_text}'")
 
 
 # Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 def encrypt(original_text, shift_key):
-    text_lower = original_text.lower()  # Converting original text to all lowercase letters
     encrypted_text = ""  # Variable to store the final encrypted text, initialized to a blank string
-    for letter in text_lower:  # Loop for every character in the text string
+    for letter in original_text:  # Loop for every character in the text string
         if letter not in alphabet:  # Special case for spaces, special characters (non-alphabets)
             encrypted_text += letter  # Just append it to the encrypted string as it is
             continue  # Continue looping with the next letter in the text string
@@ -33,7 +31,7 @@ def encrypt(original_text, shift_key):
             char_index = alphabet.index(letter)  # Find the index of the current letter in the alphabet list
             new_char_index = char_index + shift_key  # Calculate the new character to replace it with
             if new_char_index > 25:  # Special case to take care if index > 25 (eg. 'z')
-                new_char_index = new_char_index - 26  # Loop back to the beginning of the alphabet
+                new_char_index = new_char_index - 26  # Loop back to the beginning of the alphabet list
             encrypted_text += alphabet[new_char_index]  # Append the new character to the encrypted text
 
     print(f"The encrypted text is '{encrypted_text}'")
@@ -44,15 +42,15 @@ while continue_program:
 
     direction = ""
     while direction not in ['encode', 'decode']:
-        direction = input("Type 'encode' to encrypt, 'decode' to decrypt:\n")
+        direction = input("Type 'encode' to encrypt, 'decode' to decrypt:\n").lower()
 
     # Taking user input and calling the encrypt/decrypt function based on user selection
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
 
-    if direction.lower() == 'encode':
+    if direction == 'encode':
         encrypt(original_text=text, shift_key=shift)
-    elif direction.lower() == 'decode':
+    elif direction == 'decode':
         decrypt(encrypted_text=text, shift_key=shift)
 
     another_round = input("Do you want to continue? Type 'Yes' or 'No': ")
