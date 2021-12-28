@@ -44,7 +44,7 @@ while not end_of_game:  # Loop until end of game is not true
 
     # Logic to ensure a new letter is guessed - if not, user is asked to enter letter again
     if guess in guessed_letters_list:  # Check the guessed letter in the list which stores all letters guessed so far
-        print("Please enter a letter you have not guessed before.")
+        print("Please choose a letter you have not guessed before.")
         continue  # Go back to the beginning of the while loop to guess another letter
     else:
         guessed_letters_list.append(guess)  # Valid guess, add to the list of already guessed letters for future guesses
