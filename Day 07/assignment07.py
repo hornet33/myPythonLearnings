@@ -1,18 +1,8 @@
 # Python program to simulate the hangman game
-import os
 import random
 import hangman_art
 import hangman_word_bank
-
-
-def screen_clear():
-    # for mac and linux(here, os.name is 'posix')
-    if os.name == 'posix':
-        _ = os.system('clear')
-    else:
-        # for windows platfrom
-        _ = os.system('cls')
-
+from helpers import utilities  # Able to import this since PYTHONPATH env var is set to "myPythonLearnings" folder
 
 # Initialize variables
 end_of_game = False  # Boolean variable to check if end of game is reached
@@ -27,7 +17,7 @@ display = []  # Creating a blank list for displaying the guessed letters to the 
 for _ in range(chosen_word_length):  # Looping through the length of the chosen word and initializing the list to "_"
     display.append("_")
 
-screen_clear()
+utilities.screen_clear()
 # Displaying the hangman logo at the start
 print(hangman_art.logo)
 
@@ -38,7 +28,7 @@ while not end_of_game:  # Loop until end of game is not true
 
     guess = input("Guess a letter: ").upper()  # Taking user input
 
-    screen_clear()  # Clear the screen
+    utilities.screen_clear()  # Clear the screen
     # Displaying the hangman logo at the start
     print(hangman_art.logo)
 
