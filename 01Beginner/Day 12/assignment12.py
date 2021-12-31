@@ -4,12 +4,17 @@ from number_game_art import logo
 from helpers.utilities import screen_clear
 import random
 
+# Globals
+EASY_ATTEMPTS = 10
+HARD_ATTEMPTS = 5
+
 
 def get_attempts_for_user_level(selected_level):
+    """Function that returns the number of attempts for a selected user level"""
     if selected_level == 'easy':
-        return 10
+        return EASY_ATTEMPTS
     elif selected_level == 'hard':
-        return 5
+        return HARD_ATTEMPTS
 
 
 # Select a random number
@@ -19,6 +24,7 @@ def get_random_number():
 
 
 def number_game(total_attempts, answer):
+    """Function that contains the logic to play the number guessing game for the attempts and answer parameters"""
     # Keep a flag to check if game should continue
     continue_game = True
     while continue_game:
