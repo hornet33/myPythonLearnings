@@ -45,14 +45,12 @@ def get_user_choice_of_coffee():
 def check_resources_for_coffee(type_of_coffee):
     """Function to check if resources are enough for type of coffee. If not, return the resource which is not enough."""
     required_resources = MENU[type_of_coffee][INGREDIENTS]
-    if required_resources[WATER] > resources[WATER]:
-        return WATER
-    elif type_of_coffee != ESPRESSO and required_resources[MILK] > resources[MILK]:  # ESPRESSO has no milk
-        return MILK
-    elif required_resources[COFFEE] > resources[COFFEE]:
-        return COFFEE
-    else:
-        return ''  # This return means no resource is insufficient (all required resources are available)
+    # Loop for each item in the ingredient and compare against the available resources
+    for item in required_resources:
+        if required_resources[item] > resources[item]:
+            # If required is more than available, return first item which is not enough
+            return item
+    return ''  # This return means no resource is insufficient (all required resources are available)
 
 
 # Function to take the input of the coins from user. Returns the total value of the coins.
@@ -73,11 +71,9 @@ def make_coffee(type_of_coffee):
     """Function to "make" coffee - reduce coffee ingredients from resources and add money to resources"""
     # Resources used to make the cup of coffee
     required_resources = MENU[type_of_coffee][INGREDIENTS]
-    # Deducting required ingredients from the resources
-    resources[WATER] -= required_resources[WATER]
-    resources[COFFEE] -= required_resources[COFFEE]
-    if selection != ESPRESSO:  # Deduct milk for coffee type which is not espresso
-        resources[MILK] -= required_resources[MILK]
+    # Loop for each item in the ingredient and deduct from the available resources
+    for item in required_resources:
+        resources[item] -= required_resources[item]
     # Add money from coffee to the resources['money']
     resources[MONEY] += cost_of_selection
 
@@ -110,7 +106,7 @@ while selection != 'off':
                 # "Make" the coffee & add money to resources
                 make_coffee(selection)
                 # Tell user to enjoy!
-                print(f"Here's your cup of {selection} - enjoy!\n")
+                print(f"Here's your cup of {selection} ☕ - enjoy!\n")
             else:  # Not enough money, show sorry message
                 print("\nSorry that's not enough money. Money refunded. Please try another selection.\n")
         else:  # Not enough resources, show sorry message
