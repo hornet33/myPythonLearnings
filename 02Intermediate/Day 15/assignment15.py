@@ -23,10 +23,10 @@ def print_report():
     print("-----------")
     print("R E P O R T")
     print("-----------")
-    print(f"Water   : {resources[WATER]}ml")
-    print(f"Milk    : {resources[MILK]}ml")
-    print(f"Coffee  : {resources[COFFEE]}g")
-    print(f"Money   : ${resources[MONEY]}")
+    print(f"Water   : {resources[WATER]} ml")
+    print(f"Milk    : {resources[MILK]} ml")
+    print(f"Coffee  : {resources[COFFEE]} g")
+    print(f"Money   : ${get_formatted_two_decimals(resources[MONEY])}")
     print("")
 
 
@@ -102,12 +102,11 @@ while selection != 'off':
             if total_coin_value >= cost_of_selection:
                 # Calculate the change and show to the user
                 change_to_return = round(float(total_coin_value - cost_of_selection), 2)
-                formatted_user_money = '{:.2f}'.format(total_coin_value)
-                formatted_user_change = '{:.2f}'.format(change_to_return)
                 if change_to_return > 0:
-                    print(f"Thanks - you gave ${formatted_user_money}, and here's your change of ${formatted_user_change}")
+                    print(f"Thanks - you gave ${get_formatted_two_decimals(total_coin_value)}, "
+                          f"and here's your change of ${get_formatted_two_decimals(change_to_return)}")
                 else:
-                    print(f"Thanks - you gave ${formatted_user_money}")
+                    print(f"Thanks - you gave ${get_formatted_two_decimals(total_coin_value)}")
                 # "Make" the coffee & add money to resources
                 make_coffee(selection)
                 # Tell user to enjoy!

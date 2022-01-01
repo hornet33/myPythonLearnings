@@ -15,3 +15,8 @@ def screen_clear():
 def get_random_number(start, end):
     """Function to generate a random number between (start, end) and return it"""
     return random.randint(start, end)
+
+
+def get_formatted_two_decimals(number):
+    """Function to return the 2 decimal places formatted string for a given number"""
+    return "{:.2f}".format(number)
