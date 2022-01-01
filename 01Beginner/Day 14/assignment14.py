@@ -16,7 +16,7 @@ def display_options_to_user(option_a, option_b):
 
 
 def check_user_choice(user_selection, option_a, option_b):
-    """Function to check if the user selection from option_a or option_b. Returns true if correct, else false"""
+    """Function to check the user selection from option_a or option_b. Returns true if correct, else false"""
     # Getting the follower_count for the two options for result comparison
     num_a = data[option_a]["follower_count"]
     num_b = data[option_b]["follower_count"]
