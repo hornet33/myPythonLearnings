@@ -102,10 +102,12 @@ while selection != 'off':
             if total_coin_value >= cost_of_selection:
                 # Calculate the change and show to the user
                 change_to_return = round(float(total_coin_value - cost_of_selection), 2)
+                formatted_user_money = '{:.2f}'.format(total_coin_value)
+                formatted_user_change = '{:.2f}'.format(change_to_return)
                 if change_to_return > 0:
-                    print(f"Thanks - you gave ${total_coin_value}, and here's your change of ${change_to_return}.")
+                    print(f"Thanks - you gave ${formatted_user_money}, and here's your change of ${formatted_user_change}")
                 else:
-                    print(f"Thanks - you gave ${total_coin_value}")
+                    print(f"Thanks - you gave ${formatted_user_money}")
                 # "Make" the coffee & add money to resources
                 make_coffee(selection)
                 # Tell user to enjoy!
