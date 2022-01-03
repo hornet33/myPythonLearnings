@@ -20,7 +20,7 @@ my_class_object = MyFirstPythonClass("object 1")
 my_class_object.object_attribute = "Object Attribute01"
 print(my_class_object.object_attribute)
 
-another_class_obj = MyFirstPythonClass("object 2")  # another_class_obj will not have the attributes "class_attribute_1"
+another_class_obj = MyFirstPythonClass("object 2")  # another_class_obj will not have the attributes "object_attribute"
 print(another_class_obj.class_attribute_01)
 print(another_class_obj.class_attribute_02)
 another_class_obj.change_attribute_value("new value")
