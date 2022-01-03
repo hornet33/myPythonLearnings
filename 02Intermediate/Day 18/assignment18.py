@@ -27,6 +27,9 @@ start_x = -200
 start_y = 200
 circle_radius = 20
 space = 50
+
+# Initialize x and y
+x = start_x
 y = start_y
 
 # Setting turtle properties
@@ -36,15 +39,13 @@ my_turtle.speed(0)
 
 # Looping to print the dots in specified size and random color from rgb_color_list
 for _ in range(10):
-    x = start_x
     for _ in range(10):
         my_turtle.setposition(x, y)
         color = random.choice(rgb_color_list)
         my_turtle.dot(circle_radius, color)
-        my_turtle.penup()
         my_turtle.forward(space)
-
-        x += space  # Move forward for the next dot
-    y -= circle_radius + circle_radius  # For the next line, change the position of y (vertical)
+        x += space  # Move forward for the next dot on the same line
+    y -= circle_radius * 2  # For the next line, change the position of y (vertical)
+    x = start_x  # Reset x to the start of the line
 
 my_screen.exitonclick()
