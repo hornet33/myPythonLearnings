@@ -1,4 +1,4 @@
-# Creating classes and objects in Python
+# Accessing classes and objects and class attribute/methods in Python
 from turtle import Turtle, Screen  # In-built Python library
 
 my_turtle = Turtle()  # Creating an object of the class Turtle from package turtle
