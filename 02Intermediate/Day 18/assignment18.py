@@ -21,10 +21,11 @@ rgb_color_list = [(211, 154, 97), (52, 107, 132), (176, 78, 34), (238, 246, 243)
 # Creating the objects
 my_turtle = turtle.Turtle()
 my_screen = turtle.Screen()
+my_screen.setup(width=1.0, height=1.0)  # Maximize screen
 
 # Setting the co-ordinates and dimensions
-start_x = -200
-start_y = 200
+start_x = -225
+start_y = 225
 circle_radius = 20
 space = 50
 
@@ -45,7 +46,7 @@ for _ in range(10):
         my_turtle.dot(circle_radius, color)
         my_turtle.forward(space)
         x += space  # Move forward for the next dot on the same line
-    y -= circle_radius * 2  # For the next line, change the position of y (vertical)
+    y -= space  # For the next line, change the position of y (vertical)
     x = start_x  # Reset x to the start of the line
 
 my_screen.exitonclick()
