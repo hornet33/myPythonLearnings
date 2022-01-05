@@ -1,3 +1,4 @@
+# Python class for the core snake functionality used in the snakeGame.py program
 import turtle
 
 BLOCK_WIDTH = 20
@@ -6,6 +7,8 @@ UP = 90
 DOWN = 270
 LEFT = 180
 RIGHT = 0
+WIDTH_LIMIT = 600
+HEIGHT_LIMIT = 600
 
 
 class Snake:
@@ -18,13 +21,16 @@ class Snake:
         set_x = 0
         # Create the first snake body - this is the state when the game begins
         for _ in range(3):
-            new_block = turtle.Turtle()
-            new_block.shape("square")
-            new_block.color("white")
-            new_block.penup()
-            new_block.setx(set_x)
-            set_x = new_block.xcor() - BLOCK_SPACE + BLOCK_WIDTH  # Set 'x' for the next snake block
-            self.snake_body.append(new_block)  # Add block to the snake body
+            self.add_new_block(position=(set_x,0))
+            set_x = set_x - BLOCK_SPACE + BLOCK_WIDTH  # Set 'x' for the next snake block
+
+    def add_new_block(self, position):
+        new_block = turtle.Turtle()
+        new_block.shape("square")
+        new_block.color("white")
+        new_block.penup()
+        new_block.goto(position)
+        self.snake_body.append(new_block)  # Add block to the snake body
 
     def move(self):
         for block_num in range(len(self.snake_body) - 1, 0, -1):
@@ -57,3 +63,8 @@ class Snake:
             return
         self.head.setheading(UP)  # Set North
 
+    def add_tail(self):
+        self.add_new_block(self.snake_body[-1].position())
+
+    def change_head_color(self, color):
+        self.head.color(color)
