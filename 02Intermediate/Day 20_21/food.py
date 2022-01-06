@@ -6,7 +6,7 @@ import turtle
 class Food(turtle.Turtle):
     def __init__(self,):
         super().__init__()
-        self.shape("circle")
+        self.shape("turtle")
         self.penup()
         self.shapesize(stretch_wid=0.5, stretch_len=0.5)  # Making the circle half the size of the snake block
         self.color("orange")

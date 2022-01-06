@@ -68,10 +68,11 @@ def snake_play():
             restart_on_game_over()
 
         # Detect if own part of the snake's body is hit
-        for block in snake.snake_body:
-            if block == snake.head:
-                continue
-            elif snake.head.distance(block) < 1:
+        for block in snake.snake_body[1:]:  # Slice excluding the head of the snake
+            # if block == snake.head:
+            #     continue
+            # elif
+            if snake.head.distance(block) < 1:
                 game_on = False
                 score_board.game_over()
                 restart_on_game_over()
