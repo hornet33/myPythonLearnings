@@ -21,4 +21,4 @@ class ScoreBoard(turtle.Turtle):
 
     def game_over(self):
         self.goto(0, 0)
-        self.write("GAME OVER!", move=False, align="center", font=("Tahoma", 20, "bold"))
+        self.write("GAME OVER - RESTARTING GAME!", move=False, align="center", font=("Tahoma", 20, "bold"))

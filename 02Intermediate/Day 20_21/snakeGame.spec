@@ -5,9 +5,9 @@ block_cipher = None
 
 
 a = Analysis(['snakeGame.py'],
-             pathex=[],
+             pathex=['.'],
              binaries=[],
-             datas=[],
+             datas=[('.\\snake.py','.'),('.\\score_keeper.py','.'),('.\\food.py','.')],
              hiddenimports=[],
              hookspath=[],
              hooksconfig={},
