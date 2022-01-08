@@ -53,6 +53,8 @@ while game_is_on:
     if car_manager.has_collided_with_player(player):
         score_board.game_over()
         game_is_on = False
+        player.color("red")
+        screen.update()
 
 screen.exitonclick()
 
