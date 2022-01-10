@@ -1,0 +1,2 @@
+My updated text in file
+Another line at the end of the file
