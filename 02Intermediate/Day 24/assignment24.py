@@ -7,10 +7,10 @@ with open("./Input/Letters/starting_letter.txt", mode="r") as letter_template_fi
     letter_template = letter_template_file.read()
     # print(letter_template)
 
-# Loop through name and save individual letters in output directory
+# Loop through name list and save individual letters in output directory
 output_file_path = "./Output/ReadyToSend"
 for name in invited_names_list:
-    name = name.replace("\n", "")
+    name = name.strip()  # To remove the leading/trailing spaces and new-line chars
     print(name)
     file_name = f"letter_for_{name}.txt"
     letter_with_name = letter_template.replace("[name]", name)
