@@ -6,11 +6,11 @@ FUR_COLUMN = "Primary Fur Color"
 # Store file contents in squirrel_data variable
 squirrel_data = pandas.read_csv("2018_Squirrel_Census_Data.csv")
 
-# Store the unique colors in the color count list
+# Store the unique colors in the colors_list
 colors_list = squirrel_data[FUR_COLUMN].unique()
 # print(colors_list)
 
-# Loop through the Primary fur color column (Series) and update the color count dictionary
+# Loop through the colors_list and update the colors_count list
 colors_count = []
 for count_for_color in colors_list:
     colors_count.append(len(squirrel_data[squirrel_data[FUR_COLUMN] == count_for_color]))
@@ -18,7 +18,7 @@ for count_for_color in colors_list:
 
 # Create a dictionary
 colors_dictionary = {
-    "colors": colors_list,
+    "fur_colors": colors_list,
     "counts": colors_count
 }
 
