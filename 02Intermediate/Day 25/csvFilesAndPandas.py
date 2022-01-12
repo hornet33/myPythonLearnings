@@ -38,7 +38,7 @@ data = pandas.read_csv("weather_data.csv")
 # # Can also use Series methods
 # print(data["temp"].mean())  # Gets the mean (average) for the Series data["temp"]
 # print(data["temp"].max())
-# # Panadas also allows us to use the column names as attributes -> 'data["temp"]' can be written as 'data.temp'
+# # Pandas also allows us to use the column names as attributes -> 'data["temp"]' can be written as 'data.temp'
 # print(data.temp)  # Same as 'print(data["temp"])'
 
 # Accessing rows in the Pandas Dataframes
@@ -59,4 +59,4 @@ student_dict = {
 }
 student_data = pandas.DataFrame(student_dict)  # Using Pandas library to create a Dataframe from the dictionary
 print(student_data)
-student_data.to_json("student_data.json")  # Using Panads library to export the Dataframe to a JSON file
+student_data.to_json("student_data.json")  # Using Pandas library to export the Dataframe to a JSON file
