@@ -1,4 +1,5 @@
 import turtle
+from helpers.utilities import get_mouse_click_coor
 
 BG_IMG = "blank_states_img.gif"
 
@@ -9,5 +10,5 @@ screen.title("US State Game")
 screen.addshape(BG_IMG)
 turtle.shape(BG_IMG)
 
-
-screen.exitonclick()
+turtle.onscreenclick(fun=get_mouse_click_coor)
+turtle.mainloop()

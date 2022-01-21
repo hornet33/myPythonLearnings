@@ -20,3 +20,8 @@ def get_random_number(start, end):
 def get_formatted_two_decimals(number):
     """Function to return the 2 decimal places formatted string for a given number"""
     return "{:.2f}".format(number)
+
+
+def get_mouse_click_coor(x, y):
+    """Function that will print the (x,y) co-ordinates where a mouse click has occurred on the screen"""
+    print(x, y)
