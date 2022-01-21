@@ -27,13 +27,21 @@ while len(correct_guessed_states) < 50:
     # Type "exit" to exit the game
     if user_answer == "Exit":
         # Save the list of states not guessed in a csv file
-        states_missed = []
-        for state in states_list:
-            if state not in correct_guessed_states:
-                states_missed.append(state)
 
+        # ******* Method 1 - Without using List Comprehension get the list of states not guessed correctly
+        # states_missed = []
+        # for state in states_list:
+        #     if state not in correct_guessed_states:
+        #         states_missed.append(state)
+
+        # ******* Method 2 - Using List Comprehension get the list of states not guessed correctly
+        states_missed = [state for state in states_list if state not in correct_guessed_states]
+
+        # Convert to a Data Frame using the states missed list
         data = pandas.DataFrame(states_missed)
+        # Save to a csv file
         data.to_csv("states_to_learn.csv")
+        # Exit the while loop
         break
 
     if user_answer in states_list:
